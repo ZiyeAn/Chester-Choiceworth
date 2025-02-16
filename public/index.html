@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MapCeipt2.0</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<body>
+
+<div class="content">
+    <div class = "header">
+    <!-- header: upload file -->
+        <div id="file-upload-section">
+            <label for="fileInput"><img src="assets/upload.PNG" width=280px></label>
+            <input type="file" id="fileInput" accept=".json">
+        </div>
+    </div>
+    <!-- main: print out receipt -->
+    <div class="main">
+        <img src="assets/receipt.png" width=100%>
+        <table id="category-table">
+            <thead>
+                <tr>
+                    <th>Category</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Category totals will be inserted here by JS -->
+            </tbody>
+        </table>
+        <div id="map"></div>
+        <img src="assets/receipt2.png" width=100%>
+
+    </div>
+
+    <audio id="printSound" preload="auto">
+    <source src="assets/printing.mp3" type="audio/mpeg">
+    </audio>
+
+</div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.5.4/socket.io.js"></script>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <script src="script.js"></script>
+</body>
+</html>
