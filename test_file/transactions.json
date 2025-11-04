@@ -1,0 +1,130 @@
+{
+    "transactions": [
+        {
+            "date": "10/01/2025",
+            "description": "Zelle Payment From Part-Time Job",
+            "amount": 2200.00,
+            "balance": 2200.00
+        },
+        {
+            "date": "10/03/2025",
+            "description": "Freelance Design Payment",
+            "amount": 800.00,
+            "balance": 3000.00
+        },
+        {
+            "date": "10/03/2025",
+            "description": "Card Purchase - Apartment Rent Brooklyn NY",
+            "amount": -1200.00,
+            "balance": 1800.00
+        },
+        {
+            "date": "10/05/2025",
+            "description": "Card Purchase - Trader Joe’s Williamsburg NY",
+            "amount": -92.35,
+            "balance": 1707.65
+        },
+        {
+            "date": "10/06/2025",
+            "description": "Card Purchase - MTA MetroCard Monthly",
+            "amount": -127.00,
+            "balance": 1580.65
+        },
+        {
+            "date": "10/07/2025",
+            "description": "Card Purchase - Blue Bottle Coffee Brooklyn NY",
+            "amount": -7.25,
+            "balance": 1573.40
+        },
+        {
+            "date": "10/10/2025",
+            "description": "Card Purchase - Uniqlo Soho New York NY",
+            "amount": -85.90,
+            "balance": 1487.50
+        },
+        {
+            "date": "10/11/2025",
+            "description": "Card Purchase - Whole Foods Market Union Sq NY",
+            "amount": -63.40,
+            "balance": 1424.10
+        },
+        {
+            "date": "10/12/2025",
+            "description": "Recurring Card Purchase - Spotify Premium",
+            "amount": -10.99,
+            "balance": 1413.11
+        },
+        {
+            "date": "10/14/2025",
+            "description": "Recurring Card Purchase - Coursera Subscription",
+            "amount": -39.00,
+            "balance": 1374.11
+        },
+        {
+            "date": "10/15/2025",
+            "description": "Card Purchase - Tst*Joe Coffee New York NY",
+            "amount": -5.75,
+            "balance": 1368.36
+        },
+        {
+            "date": "10/17/2025",
+            "description": "Card Purchase - AMC Lincoln Square Cinema",
+            "amount": -18.00,
+            "balance": 1350.36
+        },
+        {
+            "date": "10/18/2025",
+            "description": "Card Purchase - Duane Reade Pharmacy NY",
+            "amount": -22.50,
+            "balance": 1327.86
+        },
+        {
+            "date": "10/19/2025",
+            "description": "Card Purchase - Xi’an Famous Foods NY",
+            "amount": -14.95,
+            "balance": 1312.91
+        },
+        {
+            "date": "10/20/2025",
+            "description": "Card Purchase - Blick Art Materials Manhattan NY",
+            "amount": -76.20,
+            "balance": 1236.71
+        },
+        {
+            "date": "10/22/2025",
+            "description": "Card Purchase - MTA Tap PayGo NY",
+            "amount": -2.90,
+            "balance": 1233.81
+        },
+        {
+            "date": "10/23/2025",
+            "description": "Recurring Card Purchase - Apple iCloud Storage",
+            "amount": -0.99,
+            "balance": 1232.82
+        },
+        {
+            "date": "10/24/2025",
+            "description": "Card Purchase - Metro Market East Village NY",
+            "amount": -8.60,
+            "balance": 1224.22
+        },
+        {
+            "date": "10/26/2025",
+            "description": "Card Purchase - Con Edison Utility Bill",
+            "amount": -84.00,
+            "balance": 1140.22
+        },
+        {
+            "date": "10/28/2025",
+            "description": "Card Purchase - Spectrum Internet",
+            "amount": -69.99,
+            "balance": 1070.23
+        },
+        {
+            "date": "10/30/2025",
+            "description": "Card Purchase - Domino’s Pizza Brooklyn NY",
+            "amount": -14.99,
+            "balance": 1055.24
+        }
+    ]
+}

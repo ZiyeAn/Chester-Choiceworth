@@ -7,6 +7,7 @@ let totalIncome = 0;
 let messageToPrint = '';
 let categorySums = {
     "Income/Transfers": 0,
+    "Rent": 0,
     "Recurring Payments": 0,
     "Food": 0,
     "Transport": 0,
@@ -16,19 +17,88 @@ let categorySums = {
 
 // Function to categorize transactions based on descriptions
 function categorizeTransaction(description) {
-    if (description.includes("Transfer") || description.includes("Zelle")) {
+    if (!description) return "Others";
+    const d = String(description).toLowerCase();
+
+    // --- Income / Transfers ---
+    if (
+        d.includes("zelle") ||
+        d.includes("payment from") ||
+        d.includes("payroll") ||
+        d.includes("deposit") ||
+        (d.includes("transfer") && !d.includes("to ")) // avoid some outgoing wordings
+    ) {
         return "Income/Transfers";
-    } else if (description.includes("Netflix") || description.includes("Apple") || description.includes("Verizon")) {
-        return "Recurring Payments";
-    } else if (description.includes("Canteen") || description.includes("Pizza") || description.includes("Joe Coffee") || description.includes("Barn Joo")) {
-        return "Food";
-    } else if (description.includes("Mta") || description.includes("Paygo") || description.includes("Lyft")) {
-        return "Transport";
-    } else if (description.includes("Merci Market") || description.includes("Duane Reade") || description.includes("Magvend") || description.includes("Musinsa")) {
-        return "Shopping";
-    } else {
-        return "Others";
     }
+
+    // --- Rent ---
+    if (
+        d.includes("rent") ||
+        d.includes("apartment")
+    ) {
+        return "Rent";
+    }
+
+    // --- Recurring payments (subscriptions, utilities, internet, phone, cloud) ---
+    if (
+        d.includes("spotify") ||
+        d.includes("coursera") ||
+        d.includes("apple.com/bill") ||
+        d.includes("icloud") ||
+        d.includes("netflix") ||
+        d.includes("spectrum") ||
+        d.includes("con edison") ||
+        d.includes("verizon") ||
+        d.includes("utility") ||
+        d.includes("internet")
+    ) {
+        return "Recurring Payments";
+    }
+
+    // --- Food & groceries & coffee ---
+    if (
+        d.includes("trader joe") ||
+        d.includes("whole foods") ||
+        d.includes("coffee") ||
+        d.includes("pizza") ||
+        d.includes("xi’an") || d.includes("xian famous foods") || d.includes("xi'an") ||
+        d.includes("market") || // e.g., Metro Market / Merci Market
+        d.includes("domino") ||
+        d.includes("delicatessen") ||
+        d.includes("restaurant") ||
+        d.includes("deli")
+    ) {
+        return "Food";
+    }
+
+    // --- Transport ---
+    if (
+        d.includes("mta") ||
+        d.includes("metrocard") ||
+        d.includes("paygo") ||
+        d.includes("tap") ||
+        d.includes("path") ||
+        d.includes("lyft") ||
+        d.includes("uber")
+    ) {
+        return "Transport";
+    }
+
+    // --- Shopping / retail / pharmacy / art supplies / clothing ---
+    if (
+        d.includes("uniqlo") ||
+        d.includes("duane reade") ||
+        d.includes("blick") ||
+        d.includes("magvend") ||
+        d.includes("musinsa") ||
+        d.includes("ralph lauren") ||
+        d.includes("shop") ||
+        d.includes("pharmacy")
+    ) {
+        return "Shopping";
+    }
+
+    return "Others";
 }
 
 // Function to determine the message based on total income
@@ -71,6 +141,7 @@ function loadTransactions() {
     // Reset category sums and total income
     totalIncome = 0;
     categorySums = {
+        "Income/Transfers": 0,
         "Rent": 0,
         "Recurring Payments": 0,
         "Food": 0,
@@ -80,11 +151,16 @@ function loadTransactions() {
     };
 
     transactions.forEach(transaction => {
+        const amount = Number(transaction.amount) || 0; // ensure numeric
         const category = categorizeTransaction(transaction.description);
-        categorySums[category] += transaction.amount;
 
-        if (category === "Income/Transfers" && transaction.amount > 0) {
-            totalIncome += transaction.amount;
+        if (!(category in categorySums)) {
+            categorySums[category] = 0;
+        }
+        categorySums[category] += amount; // income positive, expenses negative in your data
+
+        if (category === "Income/Transfers" && amount > 0) {
+            totalIncome += amount;
         }
     });
 
